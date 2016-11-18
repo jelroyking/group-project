@@ -64,6 +64,24 @@ def averageDistance():
   print("You travel an average of",averageKilo,"kilometers a day")
   return(averageCalories)
 
+def stepsPerDay():
+  """A function to display the number of steps taken each day"""
+  listLength=len(steps)
+  for x in range(listLength):
+    print(steps[x])
+    
+def caloriesPerDay():
+  """A function to display the number of calories burned each day"""
+  listLength=len(calories)
+  for x in range(listLength):
+    print(calories[x])
+    
+def distancePerDay():
+  """A function to display the distance travelled each day"""
+  listLength=len(kilo)
+  for x in range(listLength):
+    print(kilo[x])
+
 print("A: Steps")      #Displays the main menu
 print("B: Calories")
 print("C: Distance")
@@ -72,29 +90,38 @@ if menuChoice == "A":
   print()
   print("A: Total number of steps")     #Displays the steps submenu
   print("B: Average number of steps")
+  print("C: Steps per day")
   stepsMenuChoice=str(input("Select on of the above - "))
   if stepsMenuChoice == "A":
     totalSteps()
   elif stepsMenuChoice == "B":
     averageSteps()
+  elif stepsMenuChoice == "C":
+    stepsPerDay()
 elif menuChoice == "B":
   print()
   print("A: Total number of calories")    #Displays the calories submenu
   print("B: Average number of calories")
+  print("C: Display calories per day")
   caloriesMenuChoice=str(input("Select on of the above - "))
   if caloriesMenuChoice == "A":
     totalCalories()
   elif caloriesMenuChoice == "B":
     averageCalories()
+  elif caloriesMenuChoice == "C":
+    caloriesPerDay()
 elif menuChoice == "C":
   print()
   print("A: Total distance")     #Displays the distance submenu
   print("B: Average distance")
+  print("C: Distance per day")
   distanceMenuChoice=str(input("Select on of the above - "))
   if distanceMenuChoice == "A":
     totalDistance()
   elif distanceMenuChoice == "B":
     averageDistance()
+  elif distanceMenuChoice == "C":
+    distancePerDay()
 else:
   print()
   print("Please enter a valid menu option")
