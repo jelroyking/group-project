@@ -17,52 +17,52 @@ kilo=[float(x) for x in data_kilo]
 out.close()
 
 def totalSteps():
-    """A function to calculate the total number of steps taken by the watch user"""
-    totalSteps=sum(steps)
-    print()
-    print("You have taken a total of ",totalSteps,"steps")
+  """A function to calculate the total number of steps taken by the watch user"""
+  totalSteps=sum(steps)
+  print()
+  print("You have taken a total of ",totalSteps,"steps")
     
 def totalCalories():
-   """A function to calculate the total number of calories burned by the watch user"""
-    totalCalories=sum(calories)
-    print()
-    print("You have burned a total of ",totalCalories,"calories")
+  """A function to calculate the total number of calories burned by the watch user"""
+  totalCalories=sum(calories)
+  print()
+  print("You have burned a total of ",totalCalories,"calories")
     
 def totalDistance():
-   """A function to calculate the total distance travelled by the watch user"""
-    totalDistance=sum(distance)
-    print()
-    print("You have travelled a total of ",totalDistance,"kilometres")
+  """A function to calculate the total distance travelled by the watch user"""
+  totalDistance=sum(distance)
+  print()
+  print("You have travelled a total of ",totalDistance,"kilometres")
     
 def averageSteps():
-    """A function to calculate the average number of steps
-    taken each day using the data extracted from the csv file"""
-    totalSteps=sum(steps)
-    listLength=len(steps)
-    averageSteps=totalSteps/listLength
-    print()
-    print("You take an average of",averageSteps,"steps a day")
-    return(averageSteps)
+  """A function to calculate the average number of steps
+  taken each day using the data extracted from the csv file"""
+  totalSteps=sum(steps)
+  listLength=len(steps)
+  averageSteps=totalSteps/listLength
+  print()
+  print("You take an average of",averageSteps,"steps a day")
+  return(averageSteps)
 
 def averageCalories():
-    """A function to calculate the average number of calories
-    burned each day using the data extracted from the csv file"""
-    totalCalories=sum(calories)
-    listLength=len(calories)
-    averageCalories=totalCalories/listLength
-    print()
-    print("You burn an average of",averageCalories,"calories a day")
-    return(averageCalories)
+  """A function to calculate the average number of calories
+  burned each day using the data extracted from the csv file"""
+  totalCalories=sum(calories)
+  listLength=len(calories)
+  averageCalories=totalCalories/listLength
+  print()
+  print("You burn an average of",averageCalories,"calories a day")
+  return(averageCalories)
 
 def averageDistance():
-    """A function to calculate the average
-    distance travelled per day in kilometers"""
-    totalKilo=sum(kilo)
-    listLength=len(kilo)
-    averageKilo=round(totalKilo/listLength,2)
-    print()
-    print("You travel an average of",averageKilo,"kilometers a day")
-    return(averageCalories)
+  """A function to calculate the average
+  distance travelled per day in kilometers"""
+  totalKilo=sum(kilo)
+  listLength=len(kilo)
+  averageKilo=round(totalKilo/listLength,2)
+  print()
+  print("You travel an average of",averageKilo,"kilometers a day")
+  return(averageCalories)
 
 print("A: Steps")      #Displays the main menu
 print("B: Calories")
