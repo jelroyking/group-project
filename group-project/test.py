@@ -1,33 +1,35 @@
-#Random comment
-import csv
-out=open("DataExtraction.csv","rt")
+import csv      #Imports the csv module
+out=open("DataExtraction.csv","rt")   #Opens the csv file for reading
 data=csv.reader(out)
 data=[row for row in data]
 
-date=[row[0] for row in data]
+date=[row[0] for row in data]          #Stores the data in their relevant lists
 data_steps=[row[1] for row in data]
 data_calories=[row[2] for row in data]
 data_kilo=[row[6] for row in data]
-del date[0]
+del date[0]          #Deletes the 1st element of each list
 del data_steps[0]
 del data_calories[0]
 del data_kilo[0]
-steps=[int(x) for x in data_steps]
+steps=[int(x) for x in data_steps]        #Makes sure the data is of the correct data type
 calories=[int(x) for x in data_calories]
 kilo=[float(x) for x in data_kilo]
 out.close()
 
 def totalSteps():
+    """A function to calculate the total number of steps taken by the watch user"""
     totalSteps=sum(steps)
     print()
     print("You have taken a total of ",totalSteps,"steps")
     
 def totalCalories():
+   """A function to calculate the total number of calories burned by the watch user"""
     totalCalories=sum(calories)
     print()
     print("You have burned a total of ",totalCalories,"calories")
     
 def totalDistance():
+   """A function to calculate the total distance travelled by the watch user"""
     totalDistance=sum(distance)
     print()
     print("You have travelled a total of ",totalDistance,"kilometres")
@@ -62,13 +64,13 @@ def averageDistance():
     print("You travel an average of",averageKilo,"kilometers a day")
     return(averageCalories)
 
-print("A: Steps")
+print("A: Steps")      #Displays the main menu
 print("B: Calories")
 print("C: Distance")
-menuChoice=str(input("Select on of the above - "))
+menuChoice=str(input("Select on of the above - "))  
 if menuChoice == "A":
   print()
-  print("A: Total number of steps")
+  print("A: Total number of steps")     #Displays the steps submenu
   print("B: Average number of steps")
   stepsMenuChoice=str(input("Select on of the above - "))
   if stepsMenuChoice == "A":
@@ -77,7 +79,7 @@ if menuChoice == "A":
     averageSteps()
 elif menuChoice == "B":
   print()
-  print("A: Total number of calories")
+  print("A: Total number of calories")    #Displays the calories submenu
   print("B: Average number of calories")
   caloriesMenuChoice=str(input("Select on of the above - "))
   if caloriesMenuChoice == "A":
@@ -86,7 +88,7 @@ elif menuChoice == "B":
     averageCalories()
 elif menuChoice == "C":
   print()
-  print("A: Total distance")
+  print("A: Total distance")     #Displays the distance submenu
   print("B: Average distance")
   distanceMenuChoice=str(input("Select on of the above - "))
   if distanceMenuChoice == "A":
@@ -94,16 +96,9 @@ elif menuChoice == "C":
   elif distanceMenuChoice == "B":
     averageDistance()
 else:
+  print()
   print("Please enter a valid menu option")
 
 
 
-
-
-
-
-
-
-
-
-
+  
