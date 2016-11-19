@@ -114,6 +114,40 @@ def maxDistance():
       pointer=x
   print()
   print("The greatest distance travelled in 1 day is",maxi,"kilometers, that was on the",date[pointer])
+  
+def minSteps():
+  """A function to calculate the smallest number of steps taken in 1 day"""
+  mini=0
+  listLength=len(steps)
+  for x in range(listLength):
+    if steps[x]<mini:
+      mini=steps[x]
+      #pointer=x
+  print()
+  print("The smallest number of steps taken in 1 day is",mini,"steps, that was on the",date[x])
+  
+def minCalories():
+  """A function to calculate the smallest number of calories burned in 1 day"""
+  mini=0
+  listLength=len(calories)
+  for x in range(listLength):
+    if calories[x]<mini:
+      mini=calories[x]
+      #pointer=x
+  print()
+  print("The smallest number of calories burned in 1 day is",mini,"calories, that was on the",date[x])
+  
+def minDistance():
+  """A function to calculate the smallest distance travelled in 1 day"""
+  mini=0
+  listLength=len(kilo)
+  for x in range(listLength):
+    if kilo[x]<mini:
+      mini=round(kilo[x],2)
+      #pointer=x
+  print()
+  print("The smallest distance travelled in 1 day is",mini,"kilometers, that was on the",date[x])
+  
 
 print("A: Steps")      #Displays the main menu
 print("B: Calories")
@@ -125,6 +159,7 @@ if menuChoice == "A":
   print("B: Average number of steps")
   print("C: Steps per day")
   print("D: Most steps taken in a single day")
+  print("E: Least steps taken in a single day")
   stepsMenuChoice=str(input("Select on of the above - "))
   if stepsMenuChoice == "A":
     totalSteps()
@@ -134,12 +169,15 @@ if menuChoice == "A":
     stepsPerDay()
   elif stepsMenuChoice == "D":
     maxSteps()
+  elif stepsMenuChoice == "E":
+    minSteps()
 elif menuChoice == "B":
   print()
   print("A: Total number of calories")    #Displays the calories submenu
   print("B: Average number of calories")
   print("C: Display calories per day")
   print("D: Most calories burned in a single day")
+  print("E: Least calories burned in a single day")
   caloriesMenuChoice=str(input("Select on of the above - "))
   if caloriesMenuChoice == "A":
     totalCalories()
@@ -149,12 +187,15 @@ elif menuChoice == "B":
     caloriesPerDay()
   elif caloriesMenuChoice == "D":
     maxCalories()
+  elif caloriesMenuChoice == "E":
+    minCalories()
 elif menuChoice == "C":
   print()
   print("A: Total distance")     #Displays the distance submenu
   print("B: Average distance")
   print("C: Distance per day")
   print("D: Greatest distance travelled in a single day")
+  print("E: Least distance travelled in a single day")
   distanceMenuChoice=str(input("Select on of the above - "))
   if distanceMenuChoice == "A":
     totalDistance()
@@ -164,6 +205,8 @@ elif menuChoice == "C":
     distancePerDay()
   elif distanceMenuChoice == "D":
     maxDistance()
+  elif distanceMenuChoice == "E":
+    minDistance()
 else:
   print()
   print("Please enter a valid menu option")
