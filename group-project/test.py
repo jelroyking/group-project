@@ -7,13 +7,16 @@ date=[row[0] for row in data]          #Stores the data in their relevant lists
 data_steps=[row[1] for row in data]
 data_calories=[row[2] for row in data]
 data_kilo=[row[6] for row in data]
+data_sleep_time=[row [14] for row in data]
 del date[0]          #Deletes the 1st element of each list
 del data_steps[0]
 del data_calories[0]
 del data_kilo[0]
+del data_sleep_time[0]
 steps=[int(x) for x in data_steps]        #Makes sure the data is of the correct data type
 calories=[int(x) for x in data_calories]
 kilo=[float(x) for x in data_kilo]
+sleeptime=[int(x) for x in data_sleep_time]
 out.close()
 
 def totalSteps():
@@ -33,7 +36,13 @@ def totalDistance():
   totalDistance=sum(distance)
   print()
   print("You have travelled a total of ",totalDistance,"kilometres")
-    
+  
+def totalSleep():
+    """A function to calculate the total hours of sleep taken by the user of the watch"""
+    totalSleep=sum(sleep)
+    print()
+    print("You have slept the total of", totalSleep, "sleep")
+  
 def averageSteps():
   """A function to calculate the average number of steps
   taken each day using the data extracted from the csv file"""
@@ -64,6 +73,15 @@ def averageDistance():
   print("You travel an average of",averageKilo,"kilometers a day")
   return(averageCalories)
 
+def averageSleep():
+    """A function to calculate the average hours of sleep
+    taken each day by using the data extracted from the csv file"""
+    totalSleep=sum(sleep)
+    listLength=len(sleep)
+    averageSleep=totalSleep/listLength
+    print()
+    print("You have slept and average of", averageSleep,"hours a day")
+
 def stepsPerDay():
   """A function to display the number of steps taken each day"""
   listLength=len(steps)
@@ -81,6 +99,12 @@ def distancePerDay():
   listLength=len(kilo)
   for x in range(listLength):
     print(kilo[x])
+    
+def sleepPerDay():
+  """A function to display the number of hours slept each day"""
+  listLength=len(sleep)
+  for x in range(listLength)
+  print(sleeptime[x])
     
 def maxSteps():
   """A function to calculate the largest number of steps taken in 1 day"""
@@ -114,6 +138,8 @@ def maxDistance():
       pointer=x
   print()
   print("The greatest distance travelled in 1 day is",maxi,"kilometers, that was on the",date[pointer])
+
+def
   
 def minSteps():
   """A function to calculate the smallest number of steps taken in 1 day"""
