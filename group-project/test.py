@@ -7,16 +7,16 @@ date=[row[0] for row in data]          #Stores the data in their relevant lists
 data_steps=[row[1] for row in data]
 data_calories=[row[2] for row in data]
 data_kilo=[row[6] for row in data]
-data_sleep_time=[row [14] for row in data]
+data_sleeptime=[row [14] for row in data]
 del date[0]          #Deletes the 1st element of each list
 del data_steps[0]
 del data_calories[0]
 del data_kilo[0]
-del data_sleep_time[0]
+del data_sleeptime[0]
 steps=[int(x) for x in data_steps]        #Makes sure the data is of the correct data type
 calories=[int(x) for x in data_calories]
 kilo=[float(x) for x in data_kilo]
-sleeptime=[int(x) for x in data_sleep_time]
+sleeptime=[int(x) for x in data_sleeptime]
 out.close()
 
 def totalSteps():
@@ -102,9 +102,13 @@ def distancePerDay():
     
 def sleepPerDay():
   """A function to display the number of hours slept each day"""
-  listLength=len(sleep)
-  for x in range(listLength)
-  print(sleeptime[x])
+  listLength=len(sleep_time)
+  for x in range(listLength):
+    minutes = sleep_time[x]//60
+    hours = minutes//60
+    minutes = minutes-(60*hours)
+    print(hours,"h",minute,"m")
+    
     
 def maxSteps():
   """A function to calculate the largest number of steps taken in 1 day"""
@@ -139,7 +143,16 @@ def maxDistance():
   print()
   print("The greatest distance travelled in 1 day is",maxi,"kilometers, that was on the",date[pointer])
 
-def
+def maxSleep():
+  """A function to calculate the highest number of hours that the user of the watch has slept"""
+  maxi=0
+  listLength=len(sleeptime)
+  for x in range(listLength):
+    if sleeptime[x]>maxi:
+      maxi=sleep[x]
+      pointer=x
+  print()
+  print("The most amount of hours slept in 1 day is",maxi,"hours, that was on the" ,date[pointer])
   
 def minSteps():
   """A function to calculate the smallest number of steps taken in 1 day"""
@@ -174,10 +187,19 @@ def minDistance():
   print()
   print("The smallest distance travelled in 1 day is",mini,"kilometers, that was on the",date[x])
   
-
+def minSleepleep():
+  """A function to calculate the smallest number of hours that the user of the watch has slept"""
+  mini=0
+  listLength=len(sleeptime)
+  for x in range(listLength):
+    if sleep[x]<mini:
+      mini=calories[x]
+      #pointer=x
+        
 print("A: Steps")      #Displays the main menu
 print("B: Calories")
 print("C: Distance")
+print("D: Sleep")
 menuChoice=str(input("Select on of the above - "))  
 if menuChoice == "A":
   print()
@@ -237,6 +259,26 @@ else:
   print()
   print("Please enter a valid menu option")
 
+menuChoice=str(input("Select on of the above - "))  
+if menuChoice == "D":
+  print()
+  print("A: Total number of hours slept")     #Displays the steps submenu
+  print("B: Average number of of hours slept")
+  print("C: Hours slept per day")
+  print("D: Most number of hours slept in a single day")
+  print("E: Least number of hours slept in a single day")
+  sleepMenuChoiceMenuChoice=str(input("Select on of the above - "))
+  if sleepMenuChoice == "A":
+    totalSleep()
+  elif sleepMenuChoice == "B":
+    averageSleep()
+  elif sleepMenuChoice == "C":
+    sleepPerDay()
+  elif sleepMenuChoice == "D":
+    maxSleep()
+  elif sleepMenuChoice == "E":
+    minsleep()
+else:
+  print()
+  print("Please enter a valid menu option")
 
-
-  
