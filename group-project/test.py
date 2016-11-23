@@ -187,7 +187,7 @@ def minDistance():
   print()
   print("The smallest distance travelled in 1 day is",mini,"kilometers, that was on the",date[x])
   
-def minSleepleep():
+def minSleep():
   """A function to calculate the smallest number of hours that the user of the watch has slept"""
   mini=0
   listLength=len(sleeptime)
@@ -255,19 +255,14 @@ elif menuChoice == "C":
     maxDistance()
   elif distanceMenuChoice == "E":
     minDistance()
-else:
-  print()
-  print("Please enter a valid menu option")
-
-menuChoice=str(input("Select on of the above - "))  
-if menuChoice == "D":
+elif menuChoice == "D":
   print()
   print("A: Total number of hours slept")     #Displays the steps submenu
   print("B: Average number of of hours slept")
   print("C: Hours slept per day")
   print("D: Most number of hours slept in a single day")
   print("E: Least number of hours slept in a single day")
-  sleepMenuChoiceMenuChoice=str(input("Select on of the above - "))
+  sleepMenuChoice=str(input("Select on of the above - "))
   if sleepMenuChoice == "A":
     totalSleep()
   elif sleepMenuChoice == "B":
@@ -277,8 +272,7 @@ if menuChoice == "D":
   elif sleepMenuChoice == "D":
     maxSleep()
   elif sleepMenuChoice == "E":
-    minsleep()
+    minSleep()
 else:
   print()
   print("Please enter a valid menu option")
-
