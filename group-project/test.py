@@ -8,7 +8,7 @@ data_steps=[row[1] for row in data]
 data_calories=[row[2] for row in data]
 data_kilo=[row[6] for row in data]
 data_sleeptime=[row [14] for row in data]
-del date[0]          #Deletes the 1st element of each list
+del date[0]                                 #Deletes the 1st element of each list
 del data_steps[0]
 del data_calories[0]
 del data_kilo[0]
@@ -16,7 +16,7 @@ del data_sleeptime[0]
 steps=[int(x) for x in data_steps]        #Makes sure the data is of the correct data type
 calories=[int(x) for x in data_calories]
 kilo=[float(x) for x in data_kilo]
-sleeptime=[int(x) for x in data_sleeptime]
+sleeptime=[x for x in data_sleeptime]
 out.close()
 
 def totalSteps():
