@@ -17,7 +17,7 @@ steps=[int(x) for x in data_steps]        #Makes sure the data is of the correct
 calories=[int(x) for x in data_calories]
 kilo=[float(x) for x in data_kilo]
 sleeptime=[x for x in data_sleeptime]
-out.close()
+out.close()                             #Closes the csv file
 
 def totalSteps():
   """A function to calculate the total number of steps taken by the watch user"""
