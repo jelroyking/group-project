@@ -23,9 +23,9 @@ steps=[int(x) for x in data_steps]        #Makes sure the data is of the correct
 calories=[int(x) for x in data_calories]
 kilo=[float(x) for x in data_kilo]
 sleep=[int(x) for x in data_sleeptime]
-hrLowest=[x for x in data_HrLowest]
-hrHighest=[x for x in data_HrHighest]
-hrAverage=[x for x in data_HrAverage]
+hrLowest=[int(x) for x in data_HrLowest]
+hrHighest=[int(x) for x in data_HrHighest]
+hrAverage=[int(x) for x in data_HrAverage]
 out.close()                             #Closes the csv file
 
 def totalSteps():
@@ -54,7 +54,7 @@ def totalSleep():
     minutes=minutes-(hours*60)
     print()
     print("You have slept the total of", hours,"h",  minutes, "m")
-  
+
 def averageSteps():
   """A function to calculate the average number of steps
   taken each day using the data extracted from the csv file"""
@@ -99,8 +99,8 @@ def averageSleep():
     
 def averageHeartrate():
   """A function to calculate the average number of heartbeat taken each day by using the data extracted from the csv file"""
-  totalAverage=sum(heartrate)
-  listLength=len(HR)
+  totalAverage=sum(hrAverage)
+  listLength=len(hrAverage)
   averageHeartrate=totalHeartrate/listlength
   print()
   print("you have an average heartrate of", averageHeartrate,"BPM a day")
@@ -131,13 +131,13 @@ def sleepPerDay():
     hours = minutes//60
     minutes = minutes-(60*hours)
     print(hours,"h",minute,"m")
-  
+
 def heartratePerDay():
   """A function to display the number of heartrate each day"""
   listlength=len(heartrate)
   for x in range(HR):
     print(heratrate[x])
-       
+
 def maxSteps():
   """A function to calculate the largest number of steps taken in 1 day"""
   maxi=0
@@ -177,16 +177,17 @@ def maxSleep():
   listLength=len(sleep)
   for x in range(listLength):
     if sleep[x]>maxi:
-    maxi=sleep[x]
-    minutes=maxi//60
-    hours=minutes//60
-    minutes=minutes-(hours*60)
+      maxi=sleep[x]
+      minutes=maxi//60
+      hours=minutes//60
+      minutes=minutes-(hours*60)
     print()
     print("The most amount of hours slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the" ,date[x])
     
 def maxHeartrate():
   """A function to calculate the highest number of heartbeat that the user of the watch has"""
-  maxi=0listlength=len(sleeptime)
+  maxi=0
+  listlength=len(sleeptime)
   for x in range(listlength):
     if HR [x]>maxi:
       maxi=heartrate[x]
@@ -194,6 +195,17 @@ def maxHeartrate():
       print()
       print("The highest heartrate in 1 day is",maxi,"BPM, that was on the",date[pointer])
   
+def maxHeartrate():
+  """A function to calculate the highest number of heartbeat that the user of the watch has"""
+  maxi=0
+  listlength=len(sleep)
+  for x in range(listlength):
+    if HR [x]>maxi:
+      maxi=heartrate[x]
+      pointer=x
+      print()
+      print("The highest heartrate in 1 day is",maxi,"BPM, that was on the",date[pointer])
+      
 def minSteps():
   """A function to calculate the smallest number of steps taken in 1 day"""
   mini=0
@@ -235,6 +247,9 @@ def minSleep():
     if sleep[x]<mini:
       mini=calories[x]
       #pointer=x
+      print()
+      print("The lowest amout of heartrate in 1 day is",mini,"BPM,that was on the", data[x])
+      
         
 print("A: Steps")      #Displays the main menu
 print("B: Calories")
@@ -321,16 +336,12 @@ elif menuChoice == "E":
   print("C: Highest BPM taken in a single day")
   print("D: Lowest BMP taken in a single day")
   heartrateMenuChoice=str(input("Select on of the above - "))
-  if stepsMenuChoice == "A":
-    totalSteps()
-  elif stepsMenuChoice == "B":
-    averageSteps()
-  elif stepsMenuChoice == "C":
-    stepsPerDay()
-  elif stepsMenuChoice == "D":
-    maxSteps()
-  elif stepsMenuChoice == "E":
-    minSteps()
-else:
-  print()
-  print("Please enter a valid menu option")
+  if heartrateMenuChoice == "A":
+    averageHeartrate()
+  elif heartrateMenuChoice == "B":
+    HeartratePerDay()
+  elif heartrateMenuChoice == "C":
+    maxHeartrate()
+  elif heartrateMenuChoice == "D": 
+    pass
+
