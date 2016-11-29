@@ -101,7 +101,7 @@ def averageHeartrate():
   """A function to calculate the average number of heartbeat taken each day by using the data extracted from the csv file"""
   totalAverage=sum(hrAverage)
   listLength=len(hrAverage)
-  averageHeartrate=totalHeartrate/listlength
+  averageHeartrate=totalAverage/listLength
   print()
   print("you have an average heartrate of", averageHeartrate,"BPM a day")
 
@@ -125,12 +125,12 @@ def distancePerDay():
     
 def sleepPerDay():
   """A function to display the number of hours slept each day"""
-  listLength=len(sleep_time)
+  listLength=len(sleep)
   for x in range(listLength):
-    minutes = sleep_time[x]//60
+    minutes = sleep[x]//60
     hours = minutes//60
     minutes = minutes-(60*hours)
-    print(hours,"h",minute,"m")
+    print(hours,"h",minutes,"m")
 
 def heartratePerDay():
   """A function to display the number of heartrate each day"""
