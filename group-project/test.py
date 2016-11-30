@@ -134,9 +134,9 @@ def sleepPerDay():
 
 def heartratePerDay():
   """A function to display the number of heartrate each day"""
-  listlength=len(heartrate)
-  for x in range(HR):
-    print(heratrate[x])
+  listlength=len(hrAverage)
+  for x in range(listlength):
+    print(str(date[x])+"- Average="+str(hrAverage[x])+" Highest="+str(hrHighest[x])+" Lowest="+str(hrLowest[x]))
 
 def maxSteps():
   """A function to calculate the largest number of steps taken in 1 day"""
@@ -181,31 +181,21 @@ def maxSleep():
       minutes=maxi//60
       hours=minutes//60
       minutes=minutes-(hours*60)
-    print()
-    print("The most amount of hours slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the" ,date[x])
+      pointer=x
+  print()
+  print("The most amount of hours slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the" ,date[pointer])
     
 def maxHeartrate():
   """A function to calculate the highest number of heartbeat that the user of the watch has"""
   maxi=0
-  listlength=len(sleeptime)
+  listlength=len(hrHighest)
   for x in range(listlength):
-    if HR [x]>maxi:
-      maxi=heartrate[x]
+    if hrHighest[x]>maxi:
+      maxi=hrHighest[x]
       pointer=x
-      print()
-      print("The highest heartrate in 1 day is",maxi,"BPM, that was on the",date[pointer])
-  
-def maxHeartrate():
-  """A function to calculate the highest number of heartbeat that the user of the watch has"""
-  maxi=0
-  listlength=len(sleep)
-  for x in range(listlength):
-    if HR [x]>maxi:
-      maxi=heartrate[x]
-      pointer=x
-      print()
-      print("The highest heartrate in 1 day is",maxi,"BPM, that was on the",date[pointer])
-      
+  print()
+  print("The highest heartrate in 1 day is",maxi,"BPM, that was on the",date[pointer])
+       
 def minSteps():
   """A function to calculate the smallest number of steps taken in 1 day"""
   mini=0
@@ -213,9 +203,9 @@ def minSteps():
   for x in range(listLength):
     if steps[x]<mini:
       mini=steps[x]
-      #pointer=x
+      pointer=x
   print()
-  print("The smallest number of steps taken in 1 day is",mini,"steps, that was on the",date[x])
+  print("The smallest number of steps taken in 1 day is",mini,"steps, that was on the",date[pointer])
   
 def minCalories():
   """A function to calculate the smallest number of calories burned in 1 day"""
@@ -224,31 +214,51 @@ def minCalories():
   for x in range(listLength):
     if calories[x]<mini:
       mini=calories[x]
-      #pointer=x
+      pointer=x
   print()
-  print("The smallest number of calories burned in 1 day is",mini,"calories, that was on the",date[x])
+  print("The smallest number of calories burned in 1 day is",mini,"calories, that was on the",date[pointer])
   
 def minDistance():
   """A function to calculate the smallest distance travelled in 1 day"""
-  mini=0
+  mini=10000
   listLength=len(kilo)
   for x in range(listLength):
     if kilo[x]<mini:
       mini=round(kilo[x],2)
-      #pointer=x
+      pointer=x
   print()
-  print("The smallest distance travelled in 1 day is",mini,"kilometers, that was on the",date[x])
+  print("The smallest distance travelled in 1 day is",mini,"kilometers, that was on the",date[pointer])
   
 def minSleep():
   """A function to calculate the smallest number of hours that the user of the watch has slept"""
-  mini=0
-  listLength=len(sleeptime)
+  mini=10000
+  listLength=len(sleep)
+  print(sleep)
   for x in range(listLength):
     if sleep[x]<mini:
-      mini=calories[x]
-      #pointer=x
-      print()
-      print("The lowest amout of heartrate in 1 day is",mini,"BPM,that was on the", data[x])
+      mini=sleep[x]
+      print(mini)
+      minutes=mini//60
+      print(minutes)
+      hours=minutes//60
+      print(hours)
+      minutes=minutes-(hours*60)
+      print(minutes)
+      pointer=x
+  print("Done")
+  #print()
+  #print("The least amount of hours slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the" ,date[pointer])
+  
+def minHeartrate():
+  """A function to calculate the lowest number of heartbeat that the user of the watch has"""
+  mini=10000
+  listlength=len(hrLowest)
+  for x in range(listlength):
+    if hrLowest[x]<mini:
+      mini=hrLowest[x]
+      pointer=x
+  print()
+  print("The lowest heartrate in 1 day is",mini,"BPM, that was on the",date[pointer])
       
         
 print("A: Steps")      #Displays the main menu
@@ -256,7 +266,7 @@ print("B: Calories")
 print("C: Distance")
 print("D: Sleep")
 print("E: Heart Rate")
-menuChoice=str(input("Select on of the above - "))  
+menuChoice=str(input("Select one of the above - "))  
 if menuChoice == "A":
   print()
   print("A: Total number of steps")     #Displays the steps submenu
@@ -264,7 +274,7 @@ if menuChoice == "A":
   print("C: Steps per day")
   print("D: Most steps taken in a single day")
   print("E: Least steps taken in a single day")
-  stepsMenuChoice=str(input("Select on of the above - "))
+  stepsMenuChoice=str(input("Select one of the above - "))
   if stepsMenuChoice == "A":
     totalSteps()
   elif stepsMenuChoice == "B":
@@ -282,7 +292,7 @@ elif menuChoice == "B":
   print("C: Display calories per day")
   print("D: Most calories burned in a single day")
   print("E: Least calories burned in a single day")
-  caloriesMenuChoice=str(input("Select on of the above - "))
+  caloriesMenuChoice=str(input("Select one of the above - "))
   if caloriesMenuChoice == "A":
     totalCalories()
   elif caloriesMenuChoice == "B":
@@ -300,7 +310,7 @@ elif menuChoice == "C":
   print("C: Distance per day")
   print("D: Greatest distance travelled in a single day")
   print("E: Least distance travelled in a single day")
-  distanceMenuChoice=str(input("Select on of the above - "))
+  distanceMenuChoice=str(input("Select one of the above - "))
   if distanceMenuChoice == "A":
     totalDistance()
   elif distanceMenuChoice == "B":
@@ -318,7 +328,7 @@ elif menuChoice == "D":
   print("C: Hours slept per day")
   print("D: Most number of hours slept in a single day")
   print("E: Least number of hours slept in a single day")
-  sleepMenuChoice=str(input("Select on of the above - "))
+  sleepMenuChoice=str(input("Select one of the above - "))
   if sleepMenuChoice == "A":
     totalSleep()
   elif sleepMenuChoice == "B":
@@ -335,13 +345,13 @@ elif menuChoice == "E":
   print("B: BPM per day")
   print("C: Highest BPM taken in a single day")
   print("D: Lowest BMP taken in a single day")
-  heartrateMenuChoice=str(input("Select on of the above - "))
+  heartrateMenuChoice=str(input("Select one of the above - "))
   if heartrateMenuChoice == "A":
     averageHeartrate()
   elif heartrateMenuChoice == "B":
-    HeartratePerDay()
+    heartratePerDay()
   elif heartrateMenuChoice == "C":
     maxHeartrate()
   elif heartrateMenuChoice == "D": 
-    pass
+    minHeartrate()
 
