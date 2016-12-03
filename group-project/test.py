@@ -259,8 +259,7 @@ def minHeartrate():
       pointer=x
   print()
   print("The lowest heartrate in 1 day is",mini,"BPM, that was on the",date[pointer])
-      
-        
+  
 print("A: Steps")      #Displays the main menu
 print("B: Calories")
 print("C: Distance")
@@ -354,4 +353,5 @@ elif menuChoice == "E":
     maxHeartrate()
   elif heartrateMenuChoice == "D": 
     minHeartrate()
+
 
