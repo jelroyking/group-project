@@ -198,18 +198,18 @@ def maxHeartrate():
        
 def minSteps():
   """A function to calculate the smallest number of steps taken in 1 day"""
-  mini=0
+  mini=100000
   listLength=len(steps)
   for x in range(listLength):
     if steps[x]<mini:
       mini=steps[x]
-      pointer=x
+    #  pointer=x
   print()
-  print("The smallest number of steps taken in 1 day is",mini,"steps, that was on the",date[pointer])
+  print("The smallest number of steps taken in 1 day is",mini,"steps, that was on the",date[x])
   
 def minCalories():
   """A function to calculate the smallest number of calories burned in 1 day"""
-  mini=0
+  mini=10000
   listLength=len(calories)
   for x in range(listLength):
     if calories[x]<mini:
@@ -265,7 +265,8 @@ print("B: Calories")
 print("C: Distance")
 print("D: Sleep")
 print("E: Heart Rate")
-menuChoice=str(input("Select one of the above - "))  
+menuChoice=str(input("Select one of the above - "))
+menuChoice=menuChoice.upper()
 if menuChoice == "A":
   print()
   print("A: Total number of steps")     #Displays the steps submenu
@@ -274,6 +275,7 @@ if menuChoice == "A":
   print("D: Most steps taken in a single day")
   print("E: Least steps taken in a single day")
   stepsMenuChoice=str(input("Select one of the above - "))
+  stepsMenuChoice=stepsMenuChoice.upper()
   if stepsMenuChoice == "A":
     totalSteps()
   elif stepsMenuChoice == "B":
@@ -292,6 +294,7 @@ elif menuChoice == "B":
   print("D: Most calories burned in a single day")
   print("E: Least calories burned in a single day")
   caloriesMenuChoice=str(input("Select one of the above - "))
+  caloriesMenuChoice=caloriesMenuChoice.upper()
   if caloriesMenuChoice == "A":
     totalCalories()
   elif caloriesMenuChoice == "B":
@@ -310,6 +313,7 @@ elif menuChoice == "C":
   print("D: Greatest distance travelled in a single day")
   print("E: Least distance travelled in a single day")
   distanceMenuChoice=str(input("Select one of the above - "))
+  distanceMenuChoice=distanceMenuChoice.upper()
   if distanceMenuChoice == "A":
     totalDistance()
   elif distanceMenuChoice == "B":
@@ -328,6 +332,7 @@ elif menuChoice == "D":
   print("D: Most number of hours slept in a single day")
   print("E: Least number of hours slept in a single day")
   sleepMenuChoice=str(input("Select one of the above - "))
+  sleepMenuChoice=sleepMenuChoice.upper()
   if sleepMenuChoice == "A":
     totalSleep()
   elif sleepMenuChoice == "B":
@@ -345,6 +350,7 @@ elif menuChoice == "E":
   print("C: Highest BPM taken in a single day")
   print("D: Lowest BMP taken in a single day")
   heartrateMenuChoice=str(input("Select one of the above - "))
+  heartrateMenuChoice=heartrateMenuChoice.upper()
   if heartrateMenuChoice == "A":
     averageHeartrate()
   elif heartrateMenuChoice == "B":
