@@ -59,7 +59,7 @@ def totalSleep():
     hours=minutes//60
     minutes=minutes-(hours*60)
     print()
-    print("You have slept the total of", hours,"h",  minutes, "m")
+    print("You have slept the total of "+str(hours)+"h "+str(minutes)+"m")
 
 def averageSteps():
   """A function to calculate the average number of steps
@@ -96,12 +96,12 @@ def averageSleep():
     taken each day by using the data extracted from the csv file"""
     totalSleep=sum(sleep)
     listLength=len(sleep)
-    averageSleep=totalSleep/listLength
+    averageSleep=totalSleep//listLength
     minutes=averageSleep//60
     hours=minutes//60
     minutes=minutes-(hours*60)
     print()
-    print("You sleep an average of",int(hours),"h",int(minutes),"m each day")
+    print("You sleep an average of "+str(hours)+"h "+str(minutes)+"m each day")
     
 def averageHeartrate():
   """A function to calculate the average number of heartbeat taken each day by using the data extracted from the csv file"""
@@ -130,7 +130,7 @@ def averageWorkout():
       totalCal=totalCal+int(workoutCalories[x])
   averageCal=totalCal//noOfWorkouts
   print()
-  print("Average workout time =",hours,"h",minutes,"m")
+  print("Average workout time = "+str(hours)+"h "+str(minutes)+"m")
   print()
   print("Average calories burned per workout =",averageCal)
   print()
@@ -160,7 +160,7 @@ def sleepPerDay():
     minutes = sleep[x]//60
     hours = minutes//60
     minutes = minutes-(60*hours)
-    print(date[x],"-",hours,"h",minutes,"m")
+    print(date[x],"-"+str(hours)+"h "+str(minutes)+"m")
 
 def heartratePerDay():
   """A function to display the number of heartrate each day"""
@@ -176,7 +176,7 @@ def displayWorkouts():
       minutes = int(workoutTime[x])//60
       hours = minutes//60
       minutes = minutes-(60*hours)
-      print(date[x],"-","Time =",hours,"h",minutes,"m, Calories =",workoutCalories[x])
+      print(date[x],"-","Time = "+str(hours)+"h "+str(minutes)+"m, Calories =",workoutCalories[x])
 
 def maxSteps():
   """A function to calculate the largest number of steps taken in 1 day"""
@@ -256,7 +256,7 @@ def maxWorkout():
         maxCal=int(workoutCalories[x])
         pointer2=x
   print()
-  print("Longest workout length is",hours,"h",minutes,"m",", that was on the",date[pointer1])
+  print("Longest workout length is "+str(hours)+"h "+str(minutes)+"m, that was on the",date[pointer1])
   print()
   print("largest number of calories burned in a workout is",maxCal,"calories, that was on the", date[pointer2])
        
@@ -295,23 +295,17 @@ def minDistance():
   
 def minSleep():
   """A function to calculate the smallest number of hours that the user of the watch has slept"""
-  mini=10000
+  mini=100000
   listLength=len(sleep)
-  print(sleep)
   for x in range(listLength):
     if sleep[x]<mini:
       mini=sleep[x]
-      print(mini)
       minutes=mini//60
-      print(minutes)
       hours=minutes//60
-      print(hours)
       minutes=minutes-(hours*60)
-      print(minutes)
       pointer=x
-  print("Done")
-  #print()
-  #print("The least amount of hours slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the" ,date[pointer])
+  print()
+  print("The shortest amount of time slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the",date[pointer])
   
 def minHeartrate():
   """A function to calculate the lowest number of heartbeat that the user of the watch has"""
@@ -344,7 +338,7 @@ def minWorkout():
         minCal=int(workoutCalories[x])
         pointer2=x
   print()
-  print("Shortest workout length is",hours,"h",minutes,"m",", that was on the",date[pointer1])
+  print("Shortest workout length is "+str(hours)+"h "+str(minutes)+"m, that was on the",date[pointer1])
   print()
   print("Smallest number of calories burned in a workout is",minCal,"calories, that was on the", date[pointer2])
   
@@ -485,5 +479,3 @@ elif menuChoice == "F":
 else:
   print()
   print("Error - Please enter one of the options from the menu")
-
-
