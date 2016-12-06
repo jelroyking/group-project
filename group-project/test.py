@@ -201,6 +201,29 @@ def maxHeartrate():
       pointer=x
   print()
   print("The highest heartrate in 1 day is",maxi,"BPM, that was on the",date[pointer])
+  
+def maxWorkout():
+  """A function to display the longest workout and the workout with the most calories burned"""
+  maxTime=0
+  maxCal=0
+  listlength1=len(workoutTime)
+  listLength2=len(workoutCalories)
+  for x in range(listlength1):
+    if (workoutTime[x]!=""): 
+      if (int(workoutTime[x])>int(maxTime)):
+        maxTime=int(workoutTime[x])
+        minutes=maxTime//60
+        hours=minutes//60
+        minutes=minutes-(60*hours)
+        pointer1=x
+  for x in range(listLength2):
+    if (workoutCalories[x]!=""):
+      if (int(workoutCalories[x])>int(maxCal)):
+        maxCal=int(workoutCalories[x])
+        pointer2=x
+  print("Longest workout length is",hours,"h",minutes,"m",", that was on the",date[pointer1])
+  print()
+  print("largest number of calories burned in a workout is",maxCal,"calories, that was on the", date[pointer2])
        
 def minSteps():
   """A function to calculate the smallest number of steps taken in 1 day"""
@@ -404,8 +427,7 @@ elif menuChoice == "F":
     #averageWorkout()
     pass
   elif workoutMenuChoice == "C":
-    #maxWorkout()
-    pass
+    maxWorkout()
   elif workoutMenuChoice == "D": 
     minWorkout()
 
