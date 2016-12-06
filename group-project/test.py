@@ -11,6 +11,8 @@ data_sleeptime=[row [14] for row in data]
 data_HrLowest=[row[3] for row in data]
 data_HrHighest=[row[4] for row in data]
 data_HrAverage=[row[5] for row in data]
+data_workoutTime=[row[28] for row in data]
+data_workoutCalories=[row[29] for row in data]
 del date[0]                                 #Deletes the 1st element of each list
 del data_steps[0]
 del data_calories[0]
@@ -19,6 +21,8 @@ del data_sleeptime[0]
 del data_HrLowest[0]
 del data_HrHighest[0]
 del data_HrAverage[0]
+del data_workoutTime[0]
+del data_workoutCalories[0]
 steps=[int(x) for x in data_steps]        #Makes sure the data is of the correct data type
 calories=[int(x) for x in data_calories]
 kilo=[float(x) for x in data_kilo]
@@ -26,6 +30,8 @@ sleep=[int(x) for x in data_sleeptime]
 hrLowest=[int(x) for x in data_HrLowest]
 hrHighest=[int(x) for x in data_HrHighest]
 hrAverage=[int(x) for x in data_HrAverage]
+workoutTime=[x for x in data_workoutTime]
+workoutCalories=[x for x in data_workoutCalories]
 out.close()                             #Closes the csv file
 
 def totalSteps():
@@ -260,11 +266,35 @@ def minHeartrate():
   print()
   print("The lowest heartrate in 1 day is",mini,"BPM, that was on the",date[pointer])
   
+def minWorkout():
+  """A function to display the shortest workout and the workout with the least calories burned"""
+  minTime=10000
+  minCal=10000
+  listlength1=len(workoutTime)
+  listLength2=len(workoutCalories)
+  for x in range(listlength1):
+    if (workoutTime[x]!=""): 
+      if (int(workoutTime[x])<int(minTime)):
+        minTime=int(workoutTime[x])
+        minutes=minTime//60
+        hours=minutes//60
+        minutes=minutes-(60*hours)
+        pointer1=x
+  for x in range(listLength2):
+    if (workoutCalories[x]!=""):
+      if (int(workoutCalories[x])<int(minCal)):
+        minCal=int(workoutCalories[x])
+        pointer2=x
+  print("Shortest workout length is",hours,"h",minutes,"m",", that was on the",date[pointer1])
+  print()
+  print("Smallest number of calories burned in a workout is",minCal,"calories, that was on the", date[pointer2])
+  
 print("A: Steps")      #Displays the main menu
 print("B: Calories")
 print("C: Distance")
 print("D: Sleep")
 print("E: Heart Rate")
+print("F: Workout")
 menuChoice=str(input("Select one of the above - "))
 menuChoice=menuChoice.upper()
 if menuChoice == "A":
@@ -359,5 +389,24 @@ elif menuChoice == "E":
     maxHeartrate()
   elif heartrateMenuChoice == "D": 
     minHeartrate()
+elif menuChoice == "F":
+  print()
+  print("A: Display all workouts")
+  print("B: Average workout time and calories burned")
+  print("C: Highest workout time and calories burned")
+  print("D: Lowest workout time and calories burned")
+  print()
+  workoutMenuChoice=str(input("Select one of the above - "))
+  if workoutMenuChoice == "A":
+    #displayWorkouts()
+    pass
+  elif workoutMenuChoice == "B":
+    #averageWorkout()
+    pass
+  elif workoutMenuChoice == "C":
+    #maxWorkout()
+    pass
+  elif workoutMenuChoice == "D": 
+    minWorkout()
 
 
