@@ -48,7 +48,7 @@ def totalCalories():
     
 def totalDistance():
   """A function to calculate the total distance travelled by the watch user"""
-  totalDistance=sum(distance)
+  totalDistance=round(sum(kilo),2)
   print()
   print("You have travelled a total of ",totalDistance,"kilometres")
   
@@ -66,7 +66,7 @@ def averageSteps():
   taken each day using the data extracted from the csv file"""
   totalSteps=sum(steps)
   listLength=len(steps)
-  averageSteps=totalSteps/listLength
+  averageSteps=totalSteps//listLength
   print()
   print("You take an average of",averageSteps,"steps a day")
   return(averageSteps)
@@ -76,7 +76,7 @@ def averageCalories():
   burned each day using the data extracted from the csv file"""
   totalCalories=sum(calories)
   listLength=len(calories)
-  averageCalories=totalCalories/listLength
+  averageCalories=totalCalories//listLength
   print()
   print("You burn an average of",averageCalories,"calories a day")
   return(averageCalories)
@@ -101,7 +101,7 @@ def averageSleep():
     hours=minutes//60
     minutes=minutes-(hours*60)
     print()
-    print("You have slept and average of",int(hours),"h",int(minutes),"m")
+    print("You sleep an average of",int(hours),"h",int(minutes),"m each day")
     
 def averageHeartrate():
   """A function to calculate the average number of heartbeat taken each day by using the data extracted from the csv file"""
@@ -110,24 +110,47 @@ def averageHeartrate():
   averageHeartrate=totalAverage/listLength
   print()
   print("you have an average heartrate of", averageHeartrate,"BPM a day")
+  
+def averageWorkout():
+  """A function to display the average length and average number of calories burned in a single workout"""
+  listLength=len(workoutTime) #initialises the local variables
+  noOfWorkouts=0
+  totalTime=0
+  totalCal=0
+  for x in range(listLength):
+    if (workoutTime[x]!=""):  #if the list element isn't empty
+      totalTime=totalTime+int(workoutTime[x])
+      noOfWorkouts=noOfWorkouts+1  #increments the counter by 1 
+  averageTime=totalTime//noOfWorkouts
+  minutes=averageTime//60  #converts the time in seconds to hours and minutes
+  hours=minutes//60
+  minutes=minutes-(60*hours)
+  for x in range(listLength):
+    if (workoutCalories[x]!=""):  #if the list element isn't empty
+      totalCal=totalCal+int(workoutCalories[x])
+  averageCal=totalCal//noOfWorkouts
+  print()
+  print("The average workout length is",hours,"h",minutes,"m")
+  print()
+  print("The average number of calories burned each workout is",averageCal)
 
 def stepsPerDay():
   """A function to display the number of steps taken each day"""
   listLength=len(steps)
   for x in range(listLength):
-    print(steps[x])
+    print(date[x],"-",steps[x])
     
 def caloriesPerDay():
   """A function to display the number of calories burned each day"""
   listLength=len(calories)
   for x in range(listLength):
-    print(calories[x])
+    print(date[x],"-",calories[x])
     
 def distancePerDay():
   """A function to display the distance travelled each day"""
   listLength=len(kilo)
   for x in range(listLength):
-    print(kilo[x])
+    print(date[x],"-",round(kilo[x],2),"km")
     
 def sleepPerDay():
   """A function to display the number of hours slept each day"""
@@ -136,7 +159,7 @@ def sleepPerDay():
     minutes = sleep[x]//60
     hours = minutes//60
     minutes = minutes-(60*hours)
-    print(hours,"h",minutes,"m")
+    print(date[x],"-",hours,"h",minutes,"m")
 
 def heartratePerDay():
   """A function to display the number of heartrate each day"""
@@ -178,7 +201,7 @@ def maxDistance():
   print("The greatest distance travelled in 1 day is",maxi,"kilometers, that was on the",date[pointer])
 
 def maxSleep():
-  """A function to calculate the highest number of hours that the user of the watch has slept"""
+  """A function to calculate the greatest number of hours that the user of the watch has slept in 1 day"""
   maxi=0
   listLength=len(sleep)
   for x in range(listLength):
@@ -189,7 +212,7 @@ def maxSleep():
       minutes=minutes-(hours*60)
       pointer=x
   print()
-  print("The most amount of hours slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the" ,date[pointer])
+  print("The greatest number of hours slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the" ,date[pointer])
     
 def maxHeartrate():
   """A function to calculate the highest number of heartbeat that the user of the watch has"""
@@ -221,6 +244,7 @@ def maxWorkout():
       if (int(workoutCalories[x])>int(maxCal)):
         maxCal=int(workoutCalories[x])
         pointer2=x
+  print()
   print("Longest workout length is",hours,"h",minutes,"m",", that was on the",date[pointer1])
   print()
   print("largest number of calories burned in a workout is",maxCal,"calories, that was on the", date[pointer2])
@@ -308,6 +332,7 @@ def minWorkout():
       if (int(workoutCalories[x])<int(minCal)):
         minCal=int(workoutCalories[x])
         pointer2=x
+  print()
   print("Shortest workout length is",hours,"h",minutes,"m",", that was on the",date[pointer1])
   print()
   print("Smallest number of calories burned in a workout is",minCal,"calories, that was on the", date[pointer2])
@@ -382,7 +407,7 @@ elif menuChoice == "D":
   print("A: Total number of hours slept")     #Displays the steps submenu
   print("B: Average number of of hours slept")
   print("C: Hours slept per day")
-  print("D: Most number of hours slept in a single day")
+  print("D: Greatest number of hours slept in a single day")
   print("E: Least number of hours slept in a single day")
   sleepMenuChoice=str(input("Select one of the above - "))
   sleepMenuChoice=sleepMenuChoice.upper()
@@ -424,8 +449,7 @@ elif menuChoice == "F":
     #displayWorkouts()
     pass
   elif workoutMenuChoice == "B":
-    #averageWorkout()
-    pass
+    averageWorkout()
   elif workoutMenuChoice == "C":
     maxWorkout()
   elif workoutMenuChoice == "D": 
