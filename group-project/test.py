@@ -130,9 +130,10 @@ def averageWorkout():
       totalCal=totalCal+int(workoutCalories[x])
   averageCal=totalCal//noOfWorkouts
   print()
-  print("The average workout length is",hours,"h",minutes,"m")
+  print("Average workout time =",hours,"h",minutes,"m")
   print()
-  print("The average number of calories burned each workout is",averageCal)
+  print("Average calories burned per workout =",averageCal)
+  print()
 
 def stepsPerDay():
   """A function to display the number of steps taken each day"""
@@ -166,6 +167,16 @@ def heartratePerDay():
   listlength=len(hrAverage)
   for x in range(listlength):
     print(str(date[x])+"- Average="+str(hrAverage[x])+" Highest="+str(hrHighest[x])+" Lowest="+str(hrLowest[x]))
+    
+def displayWorkouts():
+  """A function to display the time and calories burned for each workout"""
+  listLength=len(workoutTime)
+  for x in range(listLength):
+    if (workoutTime[x]!=""):
+      minutes = int(workoutTime[x])//60
+      hours = minutes//60
+      minutes = minutes-(60*hours)
+      print(date[x],"-","Time =",hours,"h",minutes,"m, Calories =",workoutCalories[x])
 
 def maxSteps():
   """A function to calculate the largest number of steps taken in 1 day"""
@@ -364,6 +375,9 @@ if menuChoice == "A":
     maxSteps()
   elif stepsMenuChoice == "E":
     minSteps()
+  else:
+    print()
+    print("Error - Please enter one of the options from the menu")
 elif menuChoice == "B":
   print()
   print("A: Total number of calories")    #Displays the calories submenu
@@ -383,6 +397,9 @@ elif menuChoice == "B":
     maxCalories()
   elif caloriesMenuChoice == "E":
     minCalories()
+  else:
+    print()
+    print("Error - Please enter one of the options from the menu")
 elif menuChoice == "C":
   print()
   print("A: Total distance")     #Displays the distance submenu
@@ -402,6 +419,9 @@ elif menuChoice == "C":
     maxDistance()
   elif distanceMenuChoice == "E":
     minDistance()
+  else:
+    print()
+    print("Error - Please enter one of the options from the menu")
 elif menuChoice == "D":
   print()
   print("A: Total number of hours slept")     #Displays the steps submenu
@@ -421,6 +441,9 @@ elif menuChoice == "D":
     maxSleep()
   elif sleepMenuChoice == "E":
     minSleep()
+  else:
+    print()
+    print("Error - Please enter one of the options from the menu")
 elif menuChoice == "E":
   print()  
   print("A: Average number of BPM")       #Displays the steps submenu
@@ -437,22 +460,30 @@ elif menuChoice == "E":
     maxHeartrate()
   elif heartrateMenuChoice == "D": 
     minHeartrate()
+  else:
+    print()
+    print("Error - Please enter one of the options from the menu")
 elif menuChoice == "F":
   print()
   print("A: Display all workouts")
   print("B: Average workout time and calories burned")
   print("C: Highest workout time and calories burned")
   print("D: Lowest workout time and calories burned")
-  print()
   workoutMenuChoice=str(input("Select one of the above - "))
+  workoutMenuChoice=workoutMenuChoice.upper()
   if workoutMenuChoice == "A":
-    #displayWorkouts()
-    pass
+    displayWorkouts()
   elif workoutMenuChoice == "B":
     averageWorkout()
   elif workoutMenuChoice == "C":
     maxWorkout()
   elif workoutMenuChoice == "D": 
     minWorkout()
+  else:
+    print()
+    print("Error - Please enter one of the options from the menu")
+else:
+  print()
+  print("Error - Please enter one of the options from the menu")
 
 
