@@ -55,7 +55,7 @@ def totalDistance():
 def totalSleep():
     """A function to calculate the total hours of sleep taken by the user of the watch"""
     totalSleep=sum(sleep)
-    minutes=totalSleep//60
+    minutes=totalSleep//60  #converts the time in seconds to hours and minutes 
     hours=minutes//60
     minutes=minutes-(hours*60)
     print()
@@ -97,7 +97,7 @@ def averageSleep():
     totalSleep=sum(sleep)
     listLength=len(sleep)
     averageSleep=totalSleep//listLength
-    minutes=averageSleep//60
+    minutes=averageSleep//60  #converts the average time in seconds to hours and minutes 
     hours=minutes//60
     minutes=minutes-(hours*60)
     print()
@@ -172,8 +172,8 @@ def displayWorkouts():
   """A function to display the time and calories burned for each workout"""
   listLength=len(workoutTime)
   for x in range(listLength):
-    if (workoutTime[x]!=""):
-      minutes = int(workoutTime[x])//60
+    if (workoutTime[x]!=""):  #if the list element isn't empty
+      minutes = int(workoutTime[x])//60  #converts the time in seconds to hours and minutes 
       hours = minutes//60
       minutes = minutes-(60*hours)
       print(date[x],"-","Time = "+str(hours)+"h "+str(minutes)+"m, Calories =",workoutCalories[x])
@@ -185,7 +185,7 @@ def maxSteps():
   for x in range(listLength):
     if steps[x]>maxi:
       maxi=steps[x]
-      pointer=x
+      pointer=x #stores the subscript of the new max steps
   print()
   print("The largest number of steps taken in 1 day is",maxi,"steps, that was on the",date[pointer])
   
@@ -196,7 +196,7 @@ def maxCalories():
   for x in range(listLength):
     if calories[x]>maxi:
       maxi=calories[x]
-      pointer=x
+      pointer=x  #stores the subscript of the new max calories 
   print()
   print("The largest number of calories burned in 1 day is",maxi,"calories, that was on the",date[pointer])
   
@@ -206,8 +206,8 @@ def maxDistance():
   listLength=len(kilo)
   for x in range(listLength):
     if kilo[x]>maxi:
-      maxi=round(kilo[x],2)
-      pointer=x
+      maxi=round(kilo[x],2)  #rounds maxi to an appropriate degree of accuracy 
+      pointer=x #stores the subscript of the new max kilo
   print()
   print("The greatest distance travelled in 1 day is",maxi,"kilometers, that was on the",date[pointer])
 
@@ -218,10 +218,10 @@ def maxSleep():
   for x in range(listLength):
     if sleep[x]>maxi:
       maxi=sleep[x]
-      minutes=maxi//60
+      minutes=maxi//60  #converts the time in seconds to hours and minutes
       hours=minutes//60
       minutes=minutes-(hours*60)
-      pointer=x
+      pointer=x  #stores the subscript of the new max sleep
   print()
   print("The greatest number of hours slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the" ,date[pointer])
     
@@ -232,7 +232,7 @@ def maxHeartrate():
   for x in range(listlength):
     if hrHighest[x]>maxi:
       maxi=hrHighest[x]
-      pointer=x
+      pointer=x  #stores the subscript of the new max hrHighest
   print()
   print("The highest heartrate in 1 day is",maxi,"BPM, that was on the",date[pointer])
   
@@ -243,18 +243,18 @@ def maxWorkout():
   listlength1=len(workoutTime)
   listLength2=len(workoutCalories)
   for x in range(listlength1):
-    if (workoutTime[x]!=""): 
+    if (workoutTime[x]!=""):  #if the list element isn't empty
       if (int(workoutTime[x])>int(maxTime)):
         maxTime=int(workoutTime[x])
-        minutes=maxTime//60
+        minutes=maxTime//60  #converts the time in seconds to hours and minutes
         hours=minutes//60
         minutes=minutes-(60*hours)
-        pointer1=x
+        pointer1=x  #stores the subscript of the new max workoutTime
   for x in range(listLength2):
-    if (workoutCalories[x]!=""):
+    if (workoutCalories[x]!=""):  #if the list element isn't empty
       if (int(workoutCalories[x])>int(maxCal)):
         maxCal=int(workoutCalories[x])
-        pointer2=x
+        pointer2=x #stores the subscript of the new max workoutCalories
   print()
   print("Longest workout length is "+str(hours)+"h "+str(minutes)+"m, that was on the",date[pointer1])
   print()
@@ -265,20 +265,20 @@ def minSteps():
   mini=100000
   listLength=len(steps)
   for x in range(listLength):
-    if steps[x]<mini:
-      mini=steps[x]
-    #  pointer=x
+    if steps[x]<mini:  #tests if the list element is smaller than the current mini
+      mini=steps[x]  #assigns the value of the current list element to mini
+      pointer=x  #stores the subscript of the new min steps
   print()
-  print("The smallest number of steps taken in 1 day is",mini,"steps, that was on the",date[x])
+  print("The smallest number of steps taken in 1 day is",mini,"steps, that was on the",date[pointer])
   
 def minCalories():
   """A function to calculate the smallest number of calories burned in 1 day"""
   mini=10000
   listLength=len(calories)
   for x in range(listLength):
-    if calories[x]<mini:
-      mini=calories[x]
-      pointer=x
+    if calories[x]<mini:  #tests if the list element is smaller than the current mini 
+      mini=calories[x]  #assigns the value of the current list element to mini
+      pointer=x  #stores the subscript of the new min calories 
   print()
   print("The smallest number of calories burned in 1 day is",mini,"calories, that was on the",date[pointer])
   
@@ -287,9 +287,9 @@ def minDistance():
   mini=10000
   listLength=len(kilo)
   for x in range(listLength):
-    if kilo[x]<mini:
-      mini=round(kilo[x],2)
-      pointer=x
+    if kilo[x]<mini:  #tests if the current list element is smaller than the current mini
+      mini=round(kilo[x],2)  #assigns the value of the current list element to mini with an appropriate degree of accuracy 
+      pointer=x  #stores the subscript of the new min kilo
   print()
   print("The smallest distance travelled in 1 day is",mini,"kilometers, that was on the",date[pointer])
   
@@ -298,12 +298,12 @@ def minSleep():
   mini=100000
   listLength=len(sleep)
   for x in range(listLength):
-    if sleep[x]<mini:
-      mini=sleep[x]
-      minutes=mini//60
+    if sleep[x]<mini:  #tests if the current list element is smaller than the current mini
+      mini=sleep[x]  #assigns the value of the current list element to mini
+      minutes=mini//60  #converts the time in seconds to hours and minutes 
       hours=minutes//60
       minutes=minutes-(hours*60)
-      pointer=x
+      pointer=x  #stores the subscript of the new min sleep
   print()
   print("The shortest amount of time slept in 1 day is "+str(hours)+"h "+str(minutes)+"m, that was on the",date[pointer])
   
@@ -314,7 +314,7 @@ def minHeartrate():
   for x in range(listlength):
     if hrLowest[x]<mini:
       mini=hrLowest[x]
-      pointer=x
+      pointer=x  #stores the subscript of the new min hrLowest
   print()
   print("The lowest heartrate in 1 day is",mini,"BPM, that was on the",date[pointer])
   
@@ -325,18 +325,18 @@ def minWorkout():
   listlength1=len(workoutTime)
   listLength2=len(workoutCalories)
   for x in range(listlength1):
-    if (workoutTime[x]!=""): 
-      if (int(workoutTime[x])<int(minTime)):
+    if (workoutTime[x]!=""):  #if the list element isn't empty 
+      if (int(workoutTime[x])<int(minTime)):  #tests if the value of the current list element is samller than minTime
         minTime=int(workoutTime[x])
-        minutes=minTime//60
+        minutes=minTime//60  #converts the time in seconds to hours and minutes 
         hours=minutes//60
         minutes=minutes-(60*hours)
-        pointer1=x
+        pointer1=x  #stores the subscript of the new min workoutTime
   for x in range(listLength2):
-    if (workoutCalories[x]!=""):
-      if (int(workoutCalories[x])<int(minCal)):
-        minCal=int(workoutCalories[x])
-        pointer2=x
+    if (workoutCalories[x]!=""):  #if the list element isn't empty 
+      if (int(workoutCalories[x])<int(minCal)):  #tests if the value of the current list element is samller than minCal
+        minCal=int(workoutCalories[x])  
+        pointer2=x  #stores the subscript of the new min workoutCalories
   print()
   print("Shortest workout length is "+str(hours)+"h "+str(minutes)+"m, that was on the",date[pointer1])
   print()
@@ -348,8 +348,8 @@ print("C: Distance")
 print("D: Sleep")
 print("E: Heart Rate")
 print("F: Workout")
-menuChoice=str(input("Select one of the above - "))
-menuChoice=menuChoice.upper()
+menuChoice=str(input("Select one of the above - "))  #stores the user input
+menuChoice=menuChoice.upper()  #Converts the user input to uppercase 
 if menuChoice == "A":
   print()
   print("A: Total number of steps")     #Displays the steps submenu
@@ -357,8 +357,8 @@ if menuChoice == "A":
   print("C: Steps per day")
   print("D: Most steps taken in a single day")
   print("E: Least steps taken in a single day")
-  stepsMenuChoice=str(input("Select one of the above - "))
-  stepsMenuChoice=stepsMenuChoice.upper()
+  stepsMenuChoice=str(input("Select one of the above - "))  #stores the user input
+  stepsMenuChoice=stepsMenuChoice.upper()  #Converts the user input to uppercase
   if stepsMenuChoice == "A":
     totalSteps()
   elif stepsMenuChoice == "B":
@@ -369,7 +369,7 @@ if menuChoice == "A":
     maxSteps()
   elif stepsMenuChoice == "E":
     minSteps()
-  else:
+  else:  #incase the user enters an inappropriate value
     print()
     print("Error - Please enter one of the options from the menu")
 elif menuChoice == "B":
@@ -379,8 +379,8 @@ elif menuChoice == "B":
   print("C: Display calories per day")
   print("D: Most calories burned in a single day")
   print("E: Least calories burned in a single day")
-  caloriesMenuChoice=str(input("Select one of the above - "))
-  caloriesMenuChoice=caloriesMenuChoice.upper()
+  caloriesMenuChoice=str(input("Select one of the above - "))  #stores the user input
+  caloriesMenuChoice=caloriesMenuChoice.upper()  #Converts the user input to uppercase
   if caloriesMenuChoice == "A":
     totalCalories()
   elif caloriesMenuChoice == "B":
@@ -391,7 +391,7 @@ elif menuChoice == "B":
     maxCalories()
   elif caloriesMenuChoice == "E":
     minCalories()
-  else:
+  else:  #incase the user enters an inappropriate value
     print()
     print("Error - Please enter one of the options from the menu")
 elif menuChoice == "C":
@@ -401,8 +401,8 @@ elif menuChoice == "C":
   print("C: Distance per day")
   print("D: Greatest distance travelled in a single day")
   print("E: Least distance travelled in a single day")
-  distanceMenuChoice=str(input("Select one of the above - "))
-  distanceMenuChoice=distanceMenuChoice.upper()
+  distanceMenuChoice=str(input("Select one of the above - "))  #stores the user input
+  distanceMenuChoice=distanceMenuChoice.upper()  #Converts the user input to uppercase
   if distanceMenuChoice == "A":
     totalDistance()
   elif distanceMenuChoice == "B":
@@ -413,7 +413,7 @@ elif menuChoice == "C":
     maxDistance()
   elif distanceMenuChoice == "E":
     minDistance()
-  else:
+  else:  #incase the user enters an inappropriate value
     print()
     print("Error - Please enter one of the options from the menu")
 elif menuChoice == "D":
@@ -423,8 +423,8 @@ elif menuChoice == "D":
   print("C: Hours slept per day")
   print("D: Greatest number of hours slept in a single day")
   print("E: Least number of hours slept in a single day")
-  sleepMenuChoice=str(input("Select one of the above - "))
-  sleepMenuChoice=sleepMenuChoice.upper()
+  sleepMenuChoice=str(input("Select one of the above - "))  #stores the user input
+  sleepMenuChoice=sleepMenuChoice.upper()  #Converts the user input to uppercase
   if sleepMenuChoice == "A":
     totalSleep()
   elif sleepMenuChoice == "B":
@@ -435,7 +435,7 @@ elif menuChoice == "D":
     maxSleep()
   elif sleepMenuChoice == "E":
     minSleep()
-  else:
+  else:  #incase the user enters an inappropriate value
     print()
     print("Error - Please enter one of the options from the menu")
 elif menuChoice == "E":
@@ -444,8 +444,8 @@ elif menuChoice == "E":
   print("B: BPM per day")
   print("C: Highest BPM taken in a single day")
   print("D: Lowest BMP taken in a single day")
-  heartrateMenuChoice=str(input("Select one of the above - "))
-  heartrateMenuChoice=heartrateMenuChoice.upper()
+  heartrateMenuChoice=str(input("Select one of the above - "))  #stores the user input
+  heartrateMenuChoice=heartrateMenuChoice.upper()  #Converts the user input to uppercase
   if heartrateMenuChoice == "A":
     averageHeartrate()
   elif heartrateMenuChoice == "B":
@@ -454,7 +454,7 @@ elif menuChoice == "E":
     maxHeartrate()
   elif heartrateMenuChoice == "D": 
     minHeartrate()
-  else:
+  else:  #incase the user enters an inappropriate value
     print()
     print("Error - Please enter one of the options from the menu")
 elif menuChoice == "F":
@@ -463,8 +463,8 @@ elif menuChoice == "F":
   print("B: Average workout time and calories burned")
   print("C: Highest workout time and calories burned")
   print("D: Lowest workout time and calories burned")
-  workoutMenuChoice=str(input("Select one of the above - "))
-  workoutMenuChoice=workoutMenuChoice.upper()
+  workoutMenuChoice=str(input("Select one of the above - "))  #stores the user input
+  workoutMenuChoice=workoutMenuChoice.upper()  #Converts the user input to uppercase
   if workoutMenuChoice == "A":
     displayWorkouts()
   elif workoutMenuChoice == "B":
@@ -473,9 +473,9 @@ elif menuChoice == "F":
     maxWorkout()
   elif workoutMenuChoice == "D": 
     minWorkout()
-  else:
+  else:  #incase the user enters an inappropriate value
     print()
     print("Error - Please enter one of the options from the menu")
-else:
+else:  #incase the user enters an inappropriate value
   print()
   print("Error - Please enter one of the options from the menu")
